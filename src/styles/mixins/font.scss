@@ -1,0 +1,54 @@
+// Font
+@mixin font($name: "body", $weight: null, $color: null) {
+  @if $weight == light {
+    $weight: 300;
+  }
+
+  font-family: "Helvetica Neue", sans-serif;
+
+  @if $name == "body" {
+    font-size: 14px;
+    font-weight: $weight or normal;
+    line-height: 1.43;
+  } @else if $name == "body-l" {
+    font-size: 16px;
+    font-weight: $weight or normal;
+    line-height: 1.5;
+  } @else if $name == "body-s" {
+    font-size: 12px;
+    font-weight: $weight or normal;
+    line-height: 1.33;
+  } @else if $name == "berlin" {
+    font-size: 14px;
+    font-weight: $weight or normal;
+    line-height: normal;
+  } @else if $name == "milan" {
+    font-size: 16px;
+    font-weight: $weight or normal;
+    line-height: 1.25;
+  } @else if $name == "madrid" {
+    font-size: 20px;
+    font-weight: $weight or bold;
+    line-height: 1.2;
+  } @else if $name == "chicago" {
+    font-size: 28px;
+    font-weight: $weight or bold;
+    line-height: 1.14;
+  } @else if $name == "paris" {
+    font-size: 36px;
+    font-weight: $weight or bold;
+    line-height: 1.11;
+  } @else if $name == "note" {
+    font-size: 10px;
+    font-weight: $weight or bold;
+    line-height: 1.2;
+  }
+
+  color: $color or $colorWhite;
+}
+
+@mixin ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

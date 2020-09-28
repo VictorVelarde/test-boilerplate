@@ -1,0 +1,12 @@
+<!-- RadioGroup template file -->
+<div class="radio-group-container flex flex-row" :class="{ vertical: props.vertical }">
+  <component :is="injections.components.Radio" v-for="(option, id) in props.options"
+    :key="id"
+    :name="props.name"
+    :label="option.label"
+    :rvalue="option.value"
+    :value="props.value"
+    :disabled="option.disabled"
+    v-on="listeners"
+  ></component>
+</div>

@@ -1,0 +1,22 @@
+<!-- InputFile template file -->
+<div class="input-file-container flex flex-row items-center justify-between" :class="{ disabled }">
+  <div class="input-file-container">
+    <div class="input-wrapper flex flex-row items-center flex-auto margin-right-16">
+      <label :for="name" class="btn small secondary text">
+        <span>{{ label }}</span>
+      </label>
+  
+      <input ref="input" type="file" :id="name" :name="name" :accept="getTypes" :multiple="multiple" @change="previewFiles">
+  
+      <span class="preview flex-auto margin-left-16">
+        <p>{{ files.length ? files.length + ' ' + multipleText : noFileText }}</p>
+      </span>
+    </div>
+
+    <Tooltip :text="uploadButtonTooltip">
+      <button class="upload btn default no-bg icon" :class="{ 'disabled': !files || !files.length }" @click="upload">
+        <Icon icon="icon-upload-file.svg" dise="20px" :fill="style.colorMedium"></Icon>
+      </button>
+    </Tooltip>
+  </div>
+</div>

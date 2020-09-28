@@ -1,0 +1,23 @@
+/**
+ *  TransitionComponent style file
+**/
+
+.expand-enter-active,
+.expand-leave-active {
+  transition: height 0.25s ease, opacity 0.25s ease;
+}
+
+.expand-enter,
+.expand-leave-to {
+  opacity: 0;
+  height: 0;
+}
+
+.expand-enter-active,
+.expand-leave-active {
+  overflow: hidden;
+}
+
+.expand-leave {
+  overflow: visible;
+}

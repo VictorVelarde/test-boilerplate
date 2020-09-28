@@ -1,0 +1,14 @@
+<!-- Tag template file -->
+<div class="tag-container"
+  :class="[type, { 'active': isActive, 'icon': icon, disabled }]" 
+  :style="{ 'background-color': backgroundColor, 'border': border }"
+  @click.prevent.stop="toggle">
+  <Tooltip :text="tooltipText" :position="tooltipPosition">
+    <span v-if="color" class="bullet" :style="background"></span>
+    <p :style="{ 'color': textColor || null }">{{ text }}</p>
+    <Icon v-if="icon" class="icon-status" :icon="icon + '.svg'" size="20px" :fill="iconFill"></Icon>
+    <button v-if="type === 'toggle-close' && isActive" @click.stop="toggle">
+      <Icon icon="icon-delete-line.svg" size="20px" :fill="style.colorTop"></Icon>
+    </button>
+  </Tooltip>
+</div>

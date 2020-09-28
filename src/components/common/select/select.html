@@ -1,0 +1,54 @@
+<!-- Select template file -->
+<div class="select-container" :class="{ visible: open }" v-click-outside="tryClose">
+  <button class="trigger"
+    type="button"
+    ref="button"
+    @click.prevent="toggle(false)"
+    @keyup.space.stop="toggle(false)"
+    role="button"
+    tabindex="0"
+    aria-labelledby="select-label"
+    :title="ariaTitle">
+    <slot name="trigger"></slot>
+    <input v-if="search && open"
+      ref="input"
+      type="text"
+      class="margin-left-2 padding-left-16"
+      :placeholder="placeholder"
+      @keydown.space.stop="onInput"
+      @keyup.prevent.stop="onInput"
+      @click.stop="toggle(true)">
+  </button>
+
+  <TransitionComponent @toggle="updateScrollbar">
+    <div class="content flex flex-column shadow-medium" :class="{ 'padding-vertical-12': hideClear }" v-show="open" role="listbox" :aria-expanded="open">
+        <div v-if="!hideClear && selectedItems.length" class="clear-wrapper" @click="clear">
+            <button class="clear">
+                <p>Clean filter</p>
+            </button>
+        </div>
+
+      <Scrollbar ref="scrollbar">
+        <div class="scroll-content" :style="{ 'max-height': height ? height : 'auto' }">
+          <slot v-if="hasSlot('content')" name="content"></slot>
+
+          <span v-if="search && noResults" class="no-results padding-horizontal-16">
+            {{ noResultsText }}
+          </span>
+
+          <button v-if="!hasSlot('content') && filtered && filtered.length && !hasSlot('all')"
+            v-for="(item, index) in filtered"
+            class="select-item padding-horizontal-12" :class="{ 'selected': isSelected(item) }"
+            type="button"
+            role="option"
+            @click="!item.disabled && onItemClick(item)">
+            <p v-if="!hasSlot('item')">{{ item[propToDisplay] }}</p>
+            <Icon v-if="!hasSlot('item') && isSelected(item)" icon="icon-tick.svg" size="20px" :fill="style.colorAccent" aria-hidden="true"></Icon>
+
+            <slot v-if="hasSlot('item')" name="item" v-bind:data="item" @click="e => !item.disabled && onItemClick(item)"></slot>
+          </button>
+        </div>
+      </Scrollbar>
+    </div>
+  </TransitionComponent>
+</div>

@@ -1,0 +1,16 @@
+<!-- Tabs template file -->
+<div class="tabs-container">
+  <ul class="tabs flex felx-row items-end justify-between">
+    <li v-for="(tab, i) in tabs" :key="i" class="flex flex-auto">
+      <a @click="selectTab(tab)" 
+        class="flex items-center justify-center" 
+        :class="{ 'active': tab.isActive, 'disabled': tab.disabled }">
+        <span>{{ tab.name }}</span>
+        <span class="badge" v-if="tab.badge">{{ tab.badge }}</span>
+      </a>
+    </li>
+  </ul>
+  <div class="tabs-details">
+    <slot></slot>
+  </div>
+</div>

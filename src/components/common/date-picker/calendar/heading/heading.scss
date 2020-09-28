@@ -1,0 +1,39 @@
+/**
+ *  Heading style file
+**/
+
+.heading-container {
+  $calendarPadding: 12px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  margin-bottom: $calendarPadding;
+  padding: $calendarPadding $calendarPadding 0 $calendarPadding;
+
+  button {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  button.prev { transform: rotate(180deg); }
+
+  button.prev,
+  button.next {
+    display: inline-flex;
+
+    &:hover .icon-container svg {
+      fill: $colorLow;
+    }
+  }
+
+  button.controls {  
+    @include font("milan");
+    color: $colorHigh;
+    margin: 0 2px; 
+  }
+}

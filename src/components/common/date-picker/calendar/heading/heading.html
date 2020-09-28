@@ -1,0 +1,10 @@
+<!-- Heading template file -->
+<div class="heading-container">
+  <button class="prev" @click="previusMonth">
+    <Icon icon="icon-arrow-next.svg" size="20px" fill="#4b505f"></Icon>
+  </button>
+  <button class="controls" @click="openMonths">{{ getMonth() }} {{ getYear() }}</button>
+  <button class="next" @click="nextMonth">
+    <Icon icon="icon-arrow-next.svg" size="20px" fill="#4b505f"></Icon>
+  </button>
+</div>

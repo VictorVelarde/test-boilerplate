@@ -1,0 +1,26 @@
+<!-- TreeItem template file -->
+<li class="tree-item-container">
+  <button class="flex flex-row items-center justify-between padding-horizontal-16"
+    :class="{ selected: selectable && isSelected(item) }"
+    @click="onItemClick(item)">
+    <div class="label flex flex-row items-center" :class="padding">
+      <div v-if="depth !== 0" class="bullet margin-right-16"></div>
+      <span class="flex-auto">{{ item.name }}</span>
+    </div>
+    <Icon v-if="selectable && isSelected(item)" icon="icon-tick.svg" size="20px" :fill="style.colorAccent" aria-hidden="true"></Icon>
+  </button>
+
+  <TransitionComponent>
+    <ul v-show="isOpen" v-if="isParent">
+      <TreeItem v-for="child in item.children"
+        :key="child.id"
+        :item="child"
+        :collapsible="collapsible"
+        :selectable="selectable"
+        :selected="selected"
+        :depth="depth + 1"
+        @select="onItemClick">
+      </TreeItem>
+    </ul>
+  </TransitionComponent>
+</li>

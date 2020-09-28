@@ -1,0 +1,55 @@
+/**
+ *  Layer {{pascalCase name}} file
+**/
+import { Layer } from './layer'
+import { {{constantCase name}}_LAYER } from './constant'
+
+export class {{pascalCase name}}Layer extends Layer {
+  sources = [
+    // {
+    //   id: this.id,
+    //   type: 'vector',
+    //   tiles: undefined
+    // }
+    // {
+    //   id: this.id,
+    //   type: 'geojson',
+    //   data: {
+    //     type: 'FeatureCollection',
+    //     features: []
+    //   }
+    // }
+  ]
+
+  layers = [
+    // {
+    //   id: this.id,
+    //   type: 'circle',
+    //   'source-layer': 'layer0',
+    //   source: this.sources[0].id,
+    //   filter: ['>=', ['zoom'], 12],
+    //   paint: {
+    //     'circle-color': '#000000'
+    //   }
+    // }
+  ]
+
+  constructor ({ id = {{constantCase name}}_LAYER, dataSources }) {
+    super(id, dataSources)
+  }
+
+  async init (map, { popup } = {}) {
+    /* Added load titles, geojson, etc */
+
+    /* Init layer */
+    super.init(map, { popup })
+
+    /* Add interactivity, filter, etc */
+  }
+
+  destroy () {
+    /* Remove interactivity */
+
+    super.destroy()
+  }
+}

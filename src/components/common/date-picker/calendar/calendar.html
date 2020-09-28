@@ -1,0 +1,15 @@
+<!-- Calendar template file -->
+<div class="calendar-container">
+  <Heading :arrow-icon-source="arrowIconSource" :arrow-icon-size="arrowIconSize" :date="current" :locale="locale"
+    @changeMonth="changeMonth" @toggleMonths="toggleMonths">
+  </Heading>
+  
+  <Days :date="current" :start-date="start" :end-date="end" :day-format="dayFormat" :locale="locale"
+    :future-selection="futureSelection" :min-selectable-date="minSelectableDate" :max-selectable-date="maxSelectableDate"
+    @change="changeDate">
+  </Days>
+  
+  <MonthSelector v-show="isMonthSelectorOpen" :arrow-icon-source="arrowIconSource" :arrow-icon-size="arrowIconSize"
+    :date="current" :locale="locale" @year="setYear" @month="setMonth" @today="reset">
+  </MonthSelector>
+</div>

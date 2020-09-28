@@ -1,0 +1,9 @@
+<!-- TooltipComponent template file -->
+<transition appear>
+  <div class="tooltip-component-container" 
+    v-portal="'#tooltip-portal'"
+    :style="getPosition"
+    :class="[position, { multiline }]">
+    <p>{{ text }}</p>
+  </div>
+</transition>

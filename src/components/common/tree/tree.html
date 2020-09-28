@@ -1,0 +1,11 @@
+<!-- Tree template file -->
+<ul class="tree-container">
+  <TreeItem v-for="item in items" 
+    :key="item.id"
+    :item="item"
+    :collapsible="collapsible"
+    :selectable="selectable"
+    :selected="selected"
+    @select="onSelect">
+  </TreeItem>
+</ul>

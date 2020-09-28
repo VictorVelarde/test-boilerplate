@@ -1,0 +1,24 @@
+/**
+ *  RadioGroup style file
+**/
+
+.radio-group-container {
+  max-width: 100%;
+
+  .radio-container {
+    margin-right: 24px;
+
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.4;
+    }
+  }
+
+  &.vertical {
+    flex-direction: column;
+
+    .radio-container {
+      margin-bottom: 12px;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+<!-- Datepicker template file -->
+<div class="datepicker-container" v-click-outside="close">
+  <div class="datepicker-trigger flex flex-row items-center padding-horizontal-12" :class="{ visible }" @click="toggle">
+    <Icon icon="icon-calendar.svg" size="20px" :fill="style.colorHigh"></Icon>
+    <p class="margin-left-12">{{ dateToDisplay }}</p>
+  </div>
+  
+  <TransitionComponent>
+    <div v-if="visible" class="wrapper">
+      <div class="header flex flex-row items-center justify-between padding-horizontal-12">
+        <button class="prev btn default icon no-bg" @click="prevMonth">
+          <Icon icon="icon-arrow-next.svg" size="20px" :fill="style.colorHigh"></Icon>
+        </button>
+        <Tooltip text="Select month">
+          <button class="btn default text no-bg" @click="toggleMonths">
+            <span>{{ calendar.monthNames[calendar.month] }} - {{ calendar.year }}</span>
+          </button>
+        </Tooltip>
+        <button class="btn default icon no-bg" @click="nextMonth">
+          <Icon icon="icon-arrow-next.svg" size="20px" :fill="style.colorHigh"></Icon>
+        </button>
+      </div>
+  
+      <div class="calendar">
+        <div class="day-names">
+          <span v-for="(day, index) in calendar.dayNames" class="day-name flex items-center justify-center">
+            {{ calendar.dayNames[(index + calendar.startOfWeek) % 7] }}
+          </span>
+        </div>
+  
+        <div class="days-selector padding-horizontal-12 padding-bottom-12">
+          <div v-for="n in 42" class="day flex flex-column" :class="getDayClassName(n)" @click="onDayClick(n)">
+            <div class="day-inner flex flex-auto items-center justify-center">
+              <p class="label">{{ getDay(n) }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <TransitionComponent>
+        <div v-if="months" class="months-wrapper">
+          <div class="header flex flex-row items-center justify-between padding-horizontal-12">
+            <button class="prev btn default icon no-bg" @click="prevYear">
+              <Icon icon="icon-arrow-next.svg" size="20px" :fill="style.colorHigh"></Icon>
+            </button>
+            <p>{{ calendar.year }}</p>
+            <button class="btn default icon no-bg" @click="nextYear">
+              <Icon icon="icon-arrow-next.svg" size="20px" :fill="style.colorHigh"></Icon>
+            </button>
+          </div>
+          
+          <div class="months-selector padding-horizontal-12 padding-vertical-12">
+            <div v-for="n in 12" class="month flex flex-column" :class="getMonthClassName(n)" @click="onMonthClick(n)">
+              <div class="month-inner flex flex-auto items-center justify-center">
+                <p class="label">{{ getMonthName(n) }}</p>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn default icon-text secondary margin-left-12" @click="toggleMonths">
+            <Icon icon="icon-calendar.svg" size="20px" :fill="style.colorHigh"></Icon>
+            <span>Calendar</span>
+          </button>
+        </div>
+      </TransitionComponent>
+    </div>
+  </TransitionComponent>
+</div>

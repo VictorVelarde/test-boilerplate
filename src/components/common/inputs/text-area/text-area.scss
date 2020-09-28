@@ -1,0 +1,34 @@
+/**
+ *  TextArea style file
+**/
+
+.text-area-container {
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 80px;
+  border: 1px solid $colorLow;
+  @include font("body", normal, $colorHigh);
+  transition: border 0.25s ease;
+
+  &::-webkit-input-placeholder {
+    color: $colorMedium;
+  }
+  
+  &:-ms-input-placeholder {
+    color: $colorMedium;
+  }
+  
+  &::placeholder {
+    color: $colorMedium;
+  }
+
+  &.disabled {
+    background-color: $colorVeryLow;
+    pointer-events: none;
+  }
+
+  &.error {
+    border-color: $colorFeedError;
+  }
+}

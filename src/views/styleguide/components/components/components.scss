@@ -1,0 +1,23 @@
+/**
+ *  Components style file
+**/
+
+// Tabs
+.tabs-container ::v-deep .tabs .badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 18px;
+    margin-left: 8px;
+    padding: 0 6px;
+    border-radius: 10px;
+    background-color: $colorLow;
+    font-size: 10px;
+    color: $colorMedium;
+    font-weight: bold;
+}
+
+.map {
+    height: 400px;
+}

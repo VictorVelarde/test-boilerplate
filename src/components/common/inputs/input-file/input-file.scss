@@ -1,0 +1,45 @@
+/**
+ *  InputFile style file
+**/
+
+.input-file-container {
+  display: flex;
+  width: 100%;
+  height: 36px;
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  .input-wrapper {
+    height: 100%;
+    padding: 8px;
+    border: 1px solid $colorLow;
+    overflow: hidden;
+
+    .btn {
+      padding: 0 12px;
+    }
+  }
+
+  input {
+    display: none;
+  }
+
+  .preview {
+    max-width: 100%;
+    overflow: hidden;
+
+    p {
+      max-width: 100%;
+      @include font("body", normal, $colorMedium);
+      @include ellipsis();
+    }
+  }
+
+  .upload.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}

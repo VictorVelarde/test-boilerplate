@@ -1,0 +1,147 @@
+/**
+ *  Input style file
+**/
+
+.input-container {
+  height: 100%;
+  height: 36px;
+  border: 1px solid $colorLow;
+  position: relative;
+  transition: border 0.25s ease;
+
+  &.disabled {
+    background-color: $colorVeryLow;
+    pointer-events: none;
+
+    .placeholder {
+      @include font("body-s", 500, $colorMedium);
+    }
+  }
+
+  &:hover {
+    cursor: text;
+  }
+
+  &.focus {
+    border-color: $colorAccent;
+  }
+
+  &.active {
+    .placeholder {
+      @include font("body-s", 500, $colorPrimary);
+    }
+
+    &.large {
+      .placeholder {
+        @include font("body-s", 500, $colorPrimary);
+      }
+
+      input {
+        height: 24px;
+      }
+    }
+  }
+
+  &.error {
+    border-color: $colorFeedError;
+
+    &.large .placeholder {
+      color: $colorFeedError;
+    }
+  }
+
+  &.filled {
+    .placeholder {
+      @include font("body-s", 500, $colorPrimary);
+    }
+
+    &.large input {
+      height: 24px;
+    }
+  }
+
+  &.large {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 64px;
+
+    .placeholder {
+      max-width: 100%;
+      @include font("body-l", null, $colorMedium);
+      @include ellipsis();
+      transition: font-size 0.15s ease, color 0.15s ease, font-weight 0.15s ease;
+    }
+
+    input {
+      height: 0;
+    }
+  }
+  
+  input {
+    border: none;
+    outline: none;
+    background-image:none;
+    background-color:transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    width: 100%;
+    height: 100%;
+    @include font("body", null, $colorHigh);
+    transition: height 0.15s ease;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover, 
+    &:-webkit-autofill:focus {
+      border: none;
+      -webkit-text-fill-color: none;
+      -webkit-box-shadow: 0 0 0px 1000px $colorWhite inset;
+    }
+    @include font("body", normal, $colorHigh);
+
+    &::-webkit-input-placeholder {
+      @include font("body", normal, $colorMedium);
+    }
+    
+    &:-ms-input-placeholder {
+      @include font("body", normal, $colorMedium);
+    }
+    
+    &::placeholder {
+      @include font("body", normal, $colorMedium);
+      line-height: 36px;
+    }
+  }
+
+  .icon-wrapper {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+
+    button {
+      z-index: 2;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+      
+      .icon-container ::v-deep svg {
+        transition: fill 0.25s ease;
+      }
+      
+      &:hover .icon-container ::v-deep svg {
+        fill: $colorHigh;
+      }
+    }
+  }
+
+  &.focus, &:hover {
+    .icon-wrapper button {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}

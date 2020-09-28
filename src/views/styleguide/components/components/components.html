@@ -1,0 +1,955 @@
+<!-- Components template file -->
+<section id="components" ref="components" class="wrapper padding-horizontal-32 padding-bottom-32 margin-bottom-60">
+  <h1 class="section-title margin-bottom-32">Components</h1>
+  <h2 id="components-toggle-button" ref="components-toggle-button" class="margin-bottom-8">ToggleButton</h2>
+  <pre class="flex items-center justify-center margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>ToggleButton: () => import('@/components/common/toggle-button/ToggleButton.vue')</p>
+  </pre>
+
+  <div class="flex flex-row items-center margin-bottom-20">
+    <p class="margin-right-12" :style="{ width: '200px' }">Default</p>
+    <ToggleButton name="default" :buttons="toggleButtons.default" size="default" @select="onToggleButtonsSelect">
+    </ToggleButton>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-20">
+    <p class="margin-right-12" :style="{ width: '200px' }">Small</p>
+    <ToggleButton name="small" :buttons="toggleButtons.default" size="small" @select="onToggleButtonsSelect">
+    </ToggleButton>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-20">
+    <p class="margin-right-12" :style="{ width: '200px' }">Text + Icon</p>
+    <ToggleButton name="text-icon" :buttons="toggleButtons.textIcon" type="text-icon" @select="onToggleButtonsSelect">
+    </ToggleButton>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-20">
+    <p class="margin-right-12" :style="{ width: '200px' }">Disabled</p>
+    <ToggleButton name="disabled" :buttons="toggleButtons.disabled" size="default" @select="onToggleButtonsSelect">
+    </ToggleButton>
+  </div>
+
+  <div class="flex flex-row items-center">
+    <p class="margin-right-12" :style="{ width: '200px' }">Autosize</p>
+    <ToggleButton name="disabled" :buttons="toggleButtons.disabled" size="default" auto-size @select="onToggleButtonsSelect">
+    </ToggleButton>
+  </div>
+
+  <h2 id="components-tooltip" ref="components-tooltip" class="margin-top-60 margin-bottom-8">Tooltip</h2>
+
+  <div class="flex flex-row items-center margin-bottom-8">
+    <p class="margin-right-12" :style="{ width: '200px' }">Default</p>
+    <Tooltip text="Tooltip text">
+      <button class="btn default secondary icon">
+        <Icon icon="icon-calendar.svg" size="20px"></Icon>
+      </button>
+    </Tooltip>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-8">
+    <p class="margin-right-12" :style="{ width: '200px' }">Bottom</p>
+    <Tooltip text="Tooltip text" position="bottom">
+      <button class="btn default secondary icon">
+        <Icon icon="icon-calendar.svg" size="20px"></Icon>
+      </button>
+    </Tooltip>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-8">
+    <p class="margin-right-12" :style="{ width: '200px' }">Left</p>
+    <Tooltip text="Tooltip text" position="left">
+      <button class="btn default secondary icon">
+        <Icon icon="icon-calendar.svg" size="20px"></Icon>
+      </button>
+    </Tooltip>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-8">
+    <p class="margin-right-12" :style="{ width: '200px' }">Right</p>
+    <Tooltip text="Tooltip text" position="right">
+      <button class="btn default secondary icon">
+        <Icon icon="icon-calendar.svg" size="20px"></Icon>
+      </button>
+    </Tooltip>
+  </div>
+  
+  <div class="flex flex-row items-center margin-bottom-8">
+    <p class="margin-right-12" :style="{ width: '200px' }">Multiline</p>
+    <Tooltip text="Too long tooltip text multiline" :multiline="true">
+      <button class="btn default secondary icon">
+        <Icon icon="icon-calendar.svg" size="20px"></Icon>
+      </button>
+    </Tooltip>
+  </div>
+
+  <h2 id="components-checkbox" ref="components-checkbox" class="margin-top-60 margin-bottom-8">Checkbox</h2>
+  <pre class="flex items-center justify-center margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>Checkbox: () => import('@/components/common/checkbox/Checkbox.vue')</p>
+  </pre>
+
+  <div class="flex flex-row items-center margin-bottom-8">
+    <p class="margin-right-12" :style="{ width: '200px' }">Default</p>
+    <Checkbox label="Label" name="default" :value="checkbox.default" @change="onCheckboxChange"></Checkbox>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-8">
+    <p class="margin-right-12" :style="{ width: '200px' }">Active</p>
+    <Checkbox label="Label" name="active" :value="checkbox.active" @change="onCheckboxChange"></Checkbox>
+  </div>
+
+  <div class="flex flex-row items-center">
+    <p class="margin-right-12" :style="{ width: '200px' }">Disabled</p>
+    <Checkbox label="Label" name="disabled" :value="checkbox.disabled" disabled @change="onCheckboxChange"></Checkbox>
+  </div>
+  
+  <h2 id="components-radio-group" ref="components-radio-group" class="margin-top-60 margin-bottom-8">RadioGroup</h2>
+  <pre class="flex items-center justify-center margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>RadioGroup: () => import('@/components/common/radio-group/RadioGroup.vue')</p>
+  </pre>
+
+  <div class="flex flex-row items-start margin-bottom-8">
+    <p class="margin-right-12" :style="{ width: '200px' }">Vertical</p>
+    <RadioGroup :vertical="true" name="vertical" :options="radio.list" :value="radio.vertical" @change="onRadioChange"></RadioGroup>
+  </div>
+
+  <div class="flex flex-row items-start">
+    <p class="margin-right-12" :style="{ width: '200px' }">Horizontal</p>
+    <RadioGroup :vertical="false" name="horizontal" :options="radio.list" :value="radio.horizontal" @change="onRadioChange">
+    </RadioGroup>
+  </div>
+
+  <h2 id="components-toggle-switch" ref="components-toggle-switch" class="margin-top-60 margin-bottom-8">ToggleSwitch</h2>
+  <pre class="flex items-center justify-center margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>ToggleSwitch: () => import('@/components/common/toggle-switch/ToggleSwitch.vue')</p>
+  </pre>
+  
+  <div class="flex flex-row items-center margin-bottom-8">
+    <p class="margin-right-12" :style="{ width: '200px' }">Label left</p>
+    <ToggleSwitch label-position="left" name="left" label="label" :value="toggle.left" @change="onToggleChange"></ToggleSwitch>
+  </div>
+  
+  <div class="flex flex-row items-center margin-bottom-8">
+    <p class="margin-right-12" :style="{ width: '200px' }">Label right</p>
+    <ToggleSwitch label-position="right" name="right" label="label" :value="toggle.right" @change="onToggleChange"></ToggleSwitch>
+  </div>
+
+  <div class="flex flex-row items-center">
+    <p class="margin-right-12" :style="{ width: '200px' }">Disabled</p>
+    <ToggleSwitch label-position="left" name="disabled" label="label" :value="toggle.left" disabled @change="onToggleChange"></ToggleSwitch>
+  </div>
+
+  <h2 id="components-select" ref="components-select" class="margin-top-60 margin-bottom-8">Select</h2>
+  <pre class="flex items-center justify-center margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>Select: () => import('@/components/common/select/Select.vue')</p>
+  </pre>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Basic</p>
+    <div :style="{ width: '300px' }">
+      <Select ref="basic"
+        @select="setSelect"
+        name="basic"
+        :selected="select.basic.selected"
+        :items="select.list"
+        :multiselect="false"
+        :search="false"
+        :close-on-select="true"
+        :tools="false"
+        height="120px">
+        <template v-slot:trigger>
+          <div class="selector-trigger">
+            <div class="label">
+              <p v-if="select.basic.selected">{{ select.basic.selected.name }}</p>
+              <p v-else class="placeholder">Selecciona una opción</p>
+            </div>
+            <Icon icon="icon-drop-down.svg" size="16px" fill="#000000"></Icon>
+          </div>
+        </template>
+      </Select>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Multiselect</p>
+    <div :style="{ width: '300px' }">
+      <Select ref="multiselect"
+        @select="setSelect"
+        name="multiselect"
+        :selected="select.multiselect.selected"
+        :items="select.list"
+        :multiselect="true"
+        :search="false"
+        :close-on-select="false"
+        :tools="false"
+        height="120px">
+        <template v-slot:trigger>
+          <div class="selector-trigger">
+            <div class="label">
+              <p v-if="select.multiselect.selected">Seleccionado {{ select.multiselect.selected.length }}</p>
+              <p v-else class="placeholder">Selecciona una o varias opción</p>
+            </div>
+            <Icon icon="icon-drop-down.svg" size="16px" fill="#000000"></Icon>
+          </div>
+        </template>
+      </Select>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Search</p>
+    <div :style="{ width: '300px' }">
+      <Select ref="search"
+        @select="setSelect"
+        name="search"
+        :selected="select.search.selected"
+        :items="select.list"
+        :multiselect="false"
+        :search="true"
+        placeholder="Buscar items"
+        no-results-text="Busqueda sin resultados"
+        :close-on-select="true"
+        :tools="false"
+        height="120px">
+        <template v-slot:trigger>
+          <div class="selector-trigger">
+            <div class="label">
+              <p v-if="select.search.selected">{{ select.search.selected.name }}</p>
+              <p v-else class="placeholder">Selecciona una opción</p>
+            </div>
+            <Icon icon="icon-drop-down.svg" size="16px" fill="#000000"></Icon>
+          </div>
+        </template>
+      </Select>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start">
+    <p class="margin-right-12" :style="{ width: '200px' }">Multiselect + tools</p>
+    <div :style="{ width: '300px' }">
+      <Select ref="tools"
+        @select="setSelect"
+        name="tools"
+        :selected="select.tools.selected"
+        :items="select.list"
+        :multiselect="true"
+        :search="false"
+        :close-on-select="false"
+        :tools="true"
+        height="120px">
+        <template v-slot:trigger>
+          <div class="selector-trigger">
+            <div class="label">
+              <p v-if="select.tools.selected">Seleccionado {{ select.tools.selected.length }}</p>
+              <p v-else class="placeholder">Selecciona una o varias opción</p>
+            </div>
+            <Icon icon="icon-drop-down.svg" size="16px" fill="#000000"></Icon>
+          </div>
+        </template>
+      </Select>
+    </div>
+  </div>
+
+  <h2 id="components-datepicker" ref="components-datepicker" class="margin-top-60 margin-bottom-8">Datepicker (deprecated)</h2>
+  <p>NOTE: Use `Datepicker` component</p>
+  <pre class="flex items-center justify-center margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>DatePicker: () => import('@/components/common/date-picker/DatePicker.vue')</p>
+  </pre>
+
+  <div class="flex flex-row items-center margin-bottom-8">
+    <DatePicker
+      selected-date=""
+      date-format="DD/MM/YYYY"
+      month-format="MMMM"
+      day-format="ddd"
+      locale="en-US"
+      :range="false"
+      :future-selection="true"
+      @dateChanged="onDatepickerChange">
+    </DatePicker>
+  </div>
+
+  <h2 id="components-new-datepicker" ref="components-new-datepicker" class="margin-top-60 margin-bottom-8">Datepicker</h2>
+  <pre class="flex items-center justify-center margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>DatePicker: () => import('@/components/common/datepicker/DatePicker.vue')</p>
+  </pre>
+
+  <div class="flex flex-row items-center margin-bottom-8">
+    <p class="margin-right-12" :style="{ width: '200px' }">Basic</p>
+    <div class="flex flex-row items-center margin-bottom-8" style="width: 300px;">
+      <Datepicker
+        :selected-date="selectedDate"
+        locale="es-ES"
+        :future-selection="true"
+        @change="onDatepickerChange">
+      </Datepicker>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-8">
+    <p class="margin-right-12" :style="{ width: '200px' }">Range</p>
+    <div class="flex flex-row items-center margin-bottom-8" style="width: 300px;">
+      <Datepicker
+        :selected-date="selectedDateRange"
+        locale="es-ES"
+        :range="true"
+        :future-selection="true"
+        @change="onDatepickerRangeChange">
+      </Datepicker>
+    </div>
+  </div>
+
+  <!-- <div class="flex flex-row items-center margin-bottom-8">
+    <p class="margin-right-12" :style="{ width: '200px' }">Format</p>
+    <div class="flex flex-row items-center margin-bottom-8" style="width: 300px;">
+      <Datepicker
+        :selected-date="selectedDateRange"
+        date-format="DDMM/YYYY"
+        month-format="MMMM"
+        day-format="ddd"
+        locale="es-ES"
+        :range="true"
+        :future-selection="true"
+        @change="onDatepickerChange">
+      </Datepicker>
+    </div>
+  </div> -->
+
+  <h2 id="components-loading" ref="components-loading" class="margin-top-60 margin-bottom-8">Loading</h2>
+  <pre class="flex items-center justify-center margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>Loading: () => import('@/components/common/loading/Loading.vue')</p>
+  </pre>
+  
+  <div class="flex flex-row items-center margin-bottom-8">
+    <p class="margin-right-12" :style="{ width: '200px' }">20px</p>
+    <Loading :color="style.colorAccent" :show="true" width="20px"></Loading>
+  </div>
+  
+  <div class="flex flex-row items-center">
+    <p class="margin-right-12" :style="{ width: '200px' }">60px</p>
+    <Loading :color="style.colorAccent" :show="true" width="60px"></Loading>
+  </div>
+  
+  <h2 id="components-table" ref="components-table" class="margin-top-60 margin-bottom-8">Table</h2>
+  <pre class="flex items-center justify-center margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>Table: () => import('@/components/common/table/Table.vue')</p>
+  </pre>
+  
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Basic</p>
+    <div :style="{ width: '600px' }">
+      <Table ref="basic"
+        :items="table.list"
+        :visible-columns="['name', 'bird', 'company', 'occupation']"
+        :colum-names="['Nombre', 'Cumpleaños', 'Empresa', 'Cargo']">
+      </Table>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Select</p>
+    <div :style="{ width: '600px' }">
+      <Table ref="select"
+        :items="table.list"
+        :visible-columns="['name', 'bird', 'company', 'occupation']"
+        :colum-names="['Nombre', 'Cumpleaños', 'Empresa', 'Cargo']"
+        selectable
+        @select="onTableItemClick">
+      </Table>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Pagination</p>
+    <div :style="{ width: '600px' }">
+      <Table ref="pagination"
+        :items="table.list"
+        :visible-columns="['name', 'bird', 'company', 'occupation']"
+        :colum-names="['Nombre', 'Cumpleaños', 'Empresa', 'Cargo']"
+        :filter="false"
+        pagination
+        :items-per-page="2"
+        pagination-placeholder="items">
+      </Table>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Filter</p>
+    <div :style="{ width: '600px' }">
+      <Table ref="filter"
+        :items="table.list"
+        :visible-columns="['name', 'bird', 'company', 'occupation']"
+        :colum-names="['Nombre', 'Cumpleaños', 'Empresa', 'Cargo']"
+        filter>
+      </Table>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Sortable columns</p>
+    <div :style="{ width: '600px' }">
+      <Table ref="sort"
+        :items="table.list"
+        :visible-columns="['name', 'bird', 'company', 'occupation']"
+        :colum-names="['Nombre', 'Cumpleaños', 'Empresa', 'Cargo']"
+        sort-columns>
+      </Table>
+    </div>
+  </div>
+  
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Custom rows</p>
+    <div :style="{ width: '600px' }">
+      <Table ref="custom" 
+        :items="table.list" 
+        :visible-columns="['name', 'bird', 'company', 'occupation']"
+        :colum-names="['Nombre', 'Cumpleaños', 'Empresa', 'Cargo']">
+
+        <template v-slot:bird="item">
+          <div class="flex flex-row items-center justify-center" :style="{ width: '100%' }">
+            <span>🎂</span>
+            {{ item.data.bird }}
+          </div>
+        </template>
+
+        <template v-slot:company="item">
+          <div class="flex flex-row items-center justify-center" :style="{ width: '100%' }">
+            <img src="@/assets/logo.svg" alt="" :style="{ height: '20px' }">
+          </div>
+        </template>
+      </Table>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Default sort column</p>
+    <div :style="{ width: '600px' }">
+      <Table ref="sort"
+        :items="table.list"
+        :visible-columns="['name', 'bird', 'company', 'occupation']"
+        :colum-names="['Nombre', 'Cumpleaños', 'Empresa', 'Cargo']"
+        sort-columns
+        :sort-descendent="true"
+        default-sort-column="name">
+      </Table>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Max rows</p>
+    <div :style="{ width: '600px' }">
+      <Table ref="sort"
+        :items="table.list"
+        :visible-columns="['name', 'bird', 'company', 'occupation']"
+        :colum-names="['Nombre', 'Cumpleaños', 'Empresa', 'Cargo']"
+        :max-rows="2">
+      </Table>
+    </div>
+  </div>
+
+  <h2 id="components-tabs" ref="components-tabs" class="margin-top-60 margin-bottom-8">Tabs</h2>
+  <pre class="flex flex-column items-start justify-start margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>Tabs: () => import('@/components/common/tabs/Tabs.vue'),</p>
+    <p>Tab: () => import('@/components/common/tabs/tab/Tab.vue')</p>
+  </pre>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Basic</p>
+    <div :style="{ width: '600px' }">
+      <Tabs>
+        <Tab name="Tab A" selected>
+          <div>
+            <p>Tab A content</p>
+          </div>
+        </Tab>
+        <Tab name="Tab B">
+          <div>
+            <p>Tab B content</p>
+          </div>
+        </Tab>
+        <Tab name="Tab C" disabled>
+          <div>
+            <p>Tab C content</p>
+          </div>
+        </Tab>
+      </Tabs>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Tab with badge</p>
+    <div :style="{ width: '600px' }">
+      <Tabs>
+        <Tab name="Tab A" badge="10" selected>
+          <div>
+            <p>Tab A content</p>
+          </div>
+        </Tab>
+        <Tab name="Tab B" badge="8">
+          <div>
+            <p>Tab B content</p>
+          </div>
+        </Tab>
+        <Tab name="Tab C" badge="12">
+          <div>
+            <p>Tab C content</p>
+          </div>
+        </Tab>
+      </Tabs>
+    </div>
+  </div>
+
+  <h2 id="components-tag" ref="components-tag" class="margin-top-60 margin-bottom-8">Tag</h2>
+  <pre class="flex flex-column items-start justify-start margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>Tag: () => import('@/components/common/tag/Tag.vue')</p>
+  </pre>
+
+  <div class="flex flex-row items-center margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Info</p>
+    <div class="flex flex-row items-center justify-between" :style="{ width: '200px' }">
+      <Tag type="info" text="Tag" :color="style.colorFeedOk"></Tag>
+      <Tag type="info" text="Tag" :color="style.colorFeedError"></Tag>
+      <Tag type="info" text="Tag" :color="style.colorFeedWarning"></Tag>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Toggle</p>
+    <div :style="{ width: '600px' }">
+      <Tag type="toggle" name="toggle" text="Toggle" :active="true" @toggle="toggleTag"></Tag>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Toggle + Close</p>
+    <div :style="{ width: '600px' }">
+      <Tag type="toggle-close" name="toggle-close" text="Toggle close" :active="false" @toggle="toggleTag"></Tag>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Disabled</p>
+    <div :style="{ width: '600px' }">
+      <Tag type="toggle" name="disabled" text="Disabled" :disabled="true"></Tag>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Tooltip</p>
+    <div :style="{ width: '600px' }">
+      <Tag type="toggle" name="Tooltip" text="Tooltip" tooltip-text="Tooltip text"></Tag>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Icon</p>
+    <div :style="{ width: '600px' }">
+      <Tag type="toggle" name="icon" text="Icon" icon="icon-calendar" :icon-fill="style.colorTop"></Tag>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Custom</p>
+    <div :style="{ width: '600px' }">
+      <Tag type="toggle"
+        name="custom"
+        text="Custom"
+        :background-color="style.colorSecondary"
+        :border="'1px solid ' + style.colorTertiary"
+        :text-color="style.colorWhite"></Tag>
+    </div>
+  </div>
+
+  <h2 id="components-input" ref="components-input" class="margin-top-60 margin-bottom-8">Input</h2>
+  <pre class="flex flex-column items-start justify-start margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>Input: () => import('@/components/common/inputs/input/Input.vue')</p>
+  </pre>
+
+  <form action="">
+    <div class="flex flex-row items-start margin-bottom-32">
+      <p class="margin-right-12" :style="{ width: '200px' }">Basic</p>
+      <div :style="{ width: '400px' }">
+        <Input name="basic"
+          :value="inputs.default.basic"
+          label="Basic input"
+          @input="onInputChange">
+        </Input>
+      </div>
+    </div>
+    
+    <div class="flex flex-row items-start margin-bottom-32">
+      <p class="margin-right-12" :style="{ width: '200px' }">Required</p>
+      <div :style="{ width: '400px' }">
+        <Input name="required"
+          :value="inputs.default.required"
+          label="Required input"
+          required
+          @input="onInputChange">
+        </Input>
+      </div>
+    </div>
+
+    <div class="flex flex-row items-start margin-bottom-32">
+      <p class="margin-right-12" :style="{ width: '200px' }">Disabled</p>
+      <div :style="{ width: '400px' }">
+        <Input name="disabled"
+          :value="inputs.default.disabled"
+          label="Disabled input"
+          disabled>
+        </Input>
+      </div>
+    </div>
+
+    <div class="flex flex-row items-start margin-bottom-32">
+      <p class="margin-right-12" :style="{ width: '200px' }">Threshold (4-6)</p>
+      <div :style="{ width: '400px' }">
+        <Input name="length"
+          :value="inputs.default.length"
+          label="Threshold input"
+          min-length="4"
+          max-length="6"
+          @input="onInputChange">
+        </Input>
+      </div>
+    </div>
+
+    <div class="flex flex-row items-start margin-bottom-32">
+      <p class="margin-right-12" :style="{ width: '200px' }">Pattern</p>
+      <div :style="{ width: '400px' }">
+        <Input name="pattern"
+          :value="inputs.default.pattern"
+          label="Pattern input"
+          :pattern="inputs.mailRegExp"
+          @input="onInputChange">
+        </Input>
+      </div>
+    </div>
+
+    <div class="flex flex-row items-start margin-bottom-32">
+      <p class="margin-right-12" :style="{ width: '200px' }">Type (password)</p>
+      <div :style="{ width: '400px' }">
+        <Input name="type"
+          :value="inputs.default.type"
+          label="Type password"
+          type="password"
+          @input="onInputChange">
+        </Input>
+      </div>
+    </div>
+
+    <div class="flex flex-row items-start margin-bottom-32">
+      <p class="margin-right-12" :style="{ width: '200px' }">Large style</p>
+      <div :style="{ width: '400px' }">
+        <Input name="large"
+          :value="inputs.default.large"
+          type="text"
+          :large="true"
+          label="Large input"
+          :pattern="inputs.mailRegExp"
+          @input="onInputChange">
+        </Input>
+      </div>
+    </div>
+  </form>
+
+  <h2 id="components-textarea" ref="components-textarea" class="margin-top-60 margin-bottom-8">TextArea</h2>
+  <pre class="flex flex-column items-start justify-start margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>TextArea: () => import('@/components/common/inputs/text-area/TextArea.vue')</p>
+  </pre>
+
+  <form action="">
+    <div class="flex flex-row items-start margin-bottom-32">
+      <p class="margin-right-12" :style="{ width: '200px' }">Basic</p>
+      <div :style="{ width: '400px' }">
+        <TextArea name="basic"
+          :value="textarea.basic"
+          label="Basic text area"
+          @input="onTextAreaChange">
+        </TextArea>
+      </div>
+    </div>
+
+    <div class="flex flex-row items-start margin-bottom-32">
+      <p class="margin-right-12" :style="{ width: '200px' }">Required</p>
+      <div :style="{ width: '400px' }">
+        <TextArea name="required"
+          :value="textarea.required"
+          label="Required text area"
+          required
+          @input="onTextAreaChange">
+        </TextArea>
+      </div>
+    </div>
+    
+    <div class="flex flex-row items-start margin-bottom-32">
+      <p class="margin-right-12" :style="{ width: '200px' }">Disabled</p>
+      <div :style="{ width: '400px' }">
+        <TextArea name="disabled"
+          :value="textarea.disabled"
+          label="Disabled text area"
+          disabled
+          @input="onTextAreaChange">
+        </TextArea>
+      </div>
+    </div>
+
+    <div class="flex flex-row items-start margin-bottom-32">
+      <p class="margin-right-12" :style="{ width: '200px' }">Threshold (20-60)</p>
+      <div :style="{ width: '400px' }">
+        <TextArea name="length"
+          :value="textarea.length"
+          label="Threshold text area"
+          min-length="20"
+          max-length="60"
+          @input="onTextAreaChange">
+        </TextArea>
+      </div>
+    </div>
+  </form>
+
+  <h2 id="components-input-file" ref="components-input-file" class="margin-top-60 margin-bottom-8">InputFile</h2>
+  <pre class="flex flex-column items-start justify-start margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>InputFile: () => import('@/components/common/inputs/input-file/InputFile.vue')</p>
+  </pre>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Basic</p>
+    <div :style="{ width: '400px' }">
+      <InputFile name="basic" label="Select file" @uploaded="onInputFileUploaded"></InputFile>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Disabled</p>
+    <div :style="{ width: '400px' }">
+      <InputFile name="disabled" label="Select file" disabled></InputFile>
+    </div>
+  </div>
+  
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Multiple</p>
+    <div :style="{ width: '400px' }">
+      <InputFile name="multiple" label="Select files" multiple @uploaded="onInputFileUploaded"></InputFile>
+    </div>
+  </div>
+
+  <h2 id="components-range-slider" ref="components-range-slider" class="margin-top-60 margin-bottom-8">RangeSlider</h2>
+  <pre class="flex flex-column items-start justify-start margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>RangeSlider: () => import('@/components/common/range-slider/RangeSlider.vue')</p>
+  </pre>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Basic ({{ range.basic.value }})</p>
+    <div :style="{ width: '400px' }">
+      <RangeSlider name="basic" 
+        :value="range.basic.value"
+        @change="onRangeSliderChange"
+        @end="onRangeSliderChange">
+      </RangeSlider>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Double ({{ range.double.value[0] }} - {{ range.double.value[1] }})</p>
+    <div :style="{ width: '400px' }">
+      <RangeSlider name="double" 
+        :double="true"
+        :value="range.double.value"
+        @change="onRangeSliderChange"
+        @end="onRangeSliderChange">
+      </RangeSlider>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Double Threshold ({{ range.threshold.value[0] }} - {{ range.threshold.value[1] }})</p>
+    <div :style="{ width: '400px' }">
+      <RangeSlider name="threshold" 
+        :double="true"
+        :value="range.threshold.value"
+        :min="range.threshold.min"
+        :max="range.threshold.max"
+        @change="onRangeSliderChange"
+        @end="onRangeSliderChange">
+      </RangeSlider>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Step ({{ range.step.value }})</p>
+    <div :style="{ width: '400px' }">
+      <RangeSlider name="step" 
+        :value="range.step.value"
+        :step="range.step.step"
+        @change="onRangeSliderChange"
+        @end="onRangeSliderChange">
+      </RangeSlider>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Step Double ({{ range.stepdouble.value[0] }} - {{ range.stepdouble.value[1] }})</p>
+    <div :style="{ width: '400px' }">
+      <RangeSlider name="stepdouble" 
+        :value="range.stepdouble.value"
+        :double="true"
+        :step="range.stepdouble.step"
+        @change="onRangeSliderChange"
+        @end="onRangeSliderChange">
+      </RangeSlider>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Tooltip ({{ range.tooltip.value }})</p>
+    <div :style="{ width: '400px' }">
+      <RangeSlider name="tooltip" 
+        :tooltip="true" 
+        :value="range.tooltip.value" 
+        @change="onRangeSliderChange"
+        @end="onRangeSliderChange">
+      </RangeSlider>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Disabled</p>
+    <div :style="{ width: '400px' }">
+      <RangeSlider name="tooltip" 
+        :disabled="true" 
+        :value="range.tooltip.value" 
+        @change="onRangeSliderChange"
+        @end="onRangeSliderChange">
+      </RangeSlider>
+    </div>
+  </div>
+
+  <h2 id="components-modal" ref="components-modal" class="margin-top-60 margin-bottom-8">Modal</h2>
+  <pre class="flex flex-column items-start justify-start margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>Modal: () => import('@/components/common/modal/Modal.vue')</p>
+  </pre>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Basic</p>
+    <div :style="{ width: '400px' }">
+      <button class="btn default primary text" @click="openModal('basic')">
+        <span>Launch modal</span>
+      </button>
+
+      <Modal v-if="modal.basic" @close="closeModal('basic')">
+        <div class="modal-content flex flex-column padding-12 shadow-medium">
+          <div class="flex flex-row items-center justify-between margin-bottom-12">
+            <p>Modal header</p>
+
+            <button class="btn small primary icon" @click="closeModal('basic')">
+              <Icon icon="icon-delete-line.svg" size="20px" :fill="style.colorTop"></Icon>
+            </button>
+          </div>
+          
+          <p>Modal content here</p>
+        </div>
+      </Modal>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Background close</p>
+    <div :style="{ width: '400px' }">
+      <button class="btn default primary text" @click="openModal('background')">
+        <span>Launch modal</span>
+      </button>
+  
+      <Modal v-if="modal.background" :background-close="true" @close="closeModal('background')">
+        <div class="modal-content flex flex-column padding-12 shadow-medium">
+          <div class="flex flex-row items-center justify-between margin-bottom-12">
+            <p>Modal header</p>
+  
+            <button class="btn small primary icon" @click="closeModal('background')">
+              <Icon icon="icon-delete-line.svg" size="20px" :fill="style.colorTop"></Icon>
+            </button>
+          </div>
+  
+          <p>Modal content here</p>
+        </div>
+      </Modal>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">No background</p>
+    <div :style="{ width: '400px' }">
+      <button class="btn default primary text" @click="openModal('nobackground')">
+        <span>Launch modal</span>
+      </button>
+  
+      <Modal v-if="modal.nobackground" :background="false" @close="closeModal('nobackground')">
+        <div class="modal-content-no-bg flex flex-column padding-12 shadow-medium">
+          <div class="flex flex-row items-center justify-between margin-bottom-12">
+            <p>Modal header</p>
+  
+            <button class="btn small primary icon" @click="closeModal('nobackground')">
+              <Icon icon="icon-delete-line.svg" size="20px" :fill="style.colorTop"></Icon>
+            </button>
+          </div>
+  
+          <p>Modal content here</p>
+        </div>
+      </Modal>
+    </div>
+  </div>
+
+  <h2 id="components-tree" ref="components-tree" class="margin-top-60 margin-bottom-8">Tree</h2>
+  <pre class="flex flex-column items-start justify-start margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>Tree: () => import('@/components/common/tree/Tree.vue')</p>
+  </pre>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Basic</p>
+    <div :style="{ width: '400px' }">
+      <Tree :items="listTree" :selected="listTreeSelected" :collapsible="false"></Tree>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Collapsible</p>
+    <div :style="{ width: '400px' }">
+      <Tree :items="listTree" :selected="listTreeSelected" :collapsible="true"></Tree>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Selectable</p>
+    <div :style="{ width: '400px' }">
+      <Tree :items="listTree" selectable :selected="listTreeSelected" :collapsible="true" @select="onSelectTree"></Tree>
+    </div>
+  </div>
+
+  <h2 id="components-ramp" ref="components-ramp" class="margin-top-60 margin-bottom-8">Ramp</h2>
+  <pre class="flex flex-column items-start justify-start margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>Ramp: () => import('@/components/common/ramp/Ramp.vue')</p>
+  </pre>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Linear</p>
+    <div :style="{ width: '200px' }">
+      <Ramp type="linear" :min="ramp.min" :max="ramp.max" :colors="ramp.colors"></Ramp>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-start margin-bottom-32">
+    <p class="margin-right-12" :style="{ width: '200px' }">Segments</p>
+    <div :style="{ width: '200px' }">
+      <Ramp type="segment" :min="ramp.min" :max="ramp.max" :colors="ramp.colors"></Ramp>
+    </div>
+  </div>
+
+  <h2 id="components-map" ref="components-map" class="margin-top-60 margin-bottom-8">Map</h2>
+  <pre class="flex items-center justify-center margin-bottom-32 padding-vertical-4 padding-horizontal-8">
+    <p>MapComponent: () => import('@/components/map-component/MapComponent.vue')</p>
+  </pre>
+
+  <div class="flex flex-row items-center margin-bottom-8 map">
+    <MapComponent></MapComponent>
+  </div>
+</section>

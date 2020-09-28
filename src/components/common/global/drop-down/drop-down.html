@@ -1,0 +1,12 @@
+<!-- DropDown template file -->
+<div class="drop-down-container" :class="{ visible: open }" v-click-outside="tryClose">
+  <button class="trigger" type="button" ref="button" @click.prevent.stop="toggle">
+    <slot name="trigger"></slot>
+  </button>
+
+  <TransitionComponent>
+    <div class="content" v-show="open">
+      <slot name="content"></slot>
+    </div>
+  </TransitionComponent>
+</div>

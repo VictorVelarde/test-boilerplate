@@ -1,0 +1,16 @@
+<!-- ToggleButton template file -->
+<div class="toggle-button-container flex flex-row items-center" :class="{ 'auto-size': autoSize }">
+  <button v-for="(button, i) in buttons" 
+    :key="i" 
+    @click="selectButton(button)" 
+    class="btn toggle"
+    :class="[type, size, { 'active': activeButton === button.id, 'disabled': button.disabled }]">
+
+    <Icon v-if="type === 'icon' || type === 'icon-text' || type === 'text-icon'" 
+      :icon="button.icon.name" 
+      :size="button.icon.size">
+    </Icon>
+    
+    <span v-if="type === 'text' || type === 'icon-text' || type === 'text-icon'">{{ button.name }}</span>
+  </button>
+</div>

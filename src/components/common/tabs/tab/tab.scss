@@ -1,0 +1,23 @@
+/**
+ *  Tab style file
+**/
+
+.tab-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.v-leave,
+.v-leave-active {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.v-leave { opacity: 1; }
+.v-leave-active { transition: opacity 0.25s; }
+.v-leave-to { opacity: 0; }
+.v-enter { opacity: 0; }
+.v-enter-active  { transition: opacity 0.25s 0.2s; }
+.v-enter-to { opacity: 1; }

@@ -1,0 +1,220 @@
+/**
+ *  Datepicker style file
+**/
+
+.datepicker-container {
+  $calendarPadding: 12px;
+
+  position: relative;
+  width: 100%;
+
+  .datepicker-trigger {
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    border: 1px solid $colorLow;
+    transition: border 0.25s ease;
+
+    &.visible {
+      border-color: $colorAccent;
+    }
+
+    p {
+      @include font("milan", normal, $colorHigh);
+    }
+  }
+
+  .wrapper {
+    position: absolute;
+    top: 44px;
+    width: 100%;
+    margin: auto;
+    background-color: $colorWhite;
+    overflow: hidden;
+    border: 1px solid $colorLow;
+    z-index: 1;
+  }
+  
+  .months-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    background-color: $colorWhite;
+    z-index: 1;
+  }
+
+  .header {
+    height: 60px;
+    border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+    z-index: 0;
+
+    .prev { transform: rotate(180deg); }
+  }
+
+  .calendar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .day-names {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(calc(100% / 7), 1fr));
+    grid-template-rows: 20px;
+    grid-auto-rows: 1fr;
+    margin-bottom: 12px;
+    background-color: $colorVeryLow;
+
+    .day-name {
+      @include font("body-s", normal, $colorMedium);
+      text-align: center;
+    }
+  }
+
+  .days-selector,
+  .months-selector {
+    display: grid;
+    grid-auto-rows: 1fr;
+    row-gap: 1px;
+
+    &:before {
+      content: "";
+      width: 0;
+      padding-bottom: 100%;
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+  }
+
+  .days-selector > *:first-child,
+  .months-selector > *:first-child {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+  }
+
+  .days-selector {
+    grid-template-columns: repeat(auto-fill, minmax(calc(100% / 7), 1fr));
+  }
+
+  .day {
+    cursor: pointer;
+
+    .day-inner {
+      margin: 1px 0 0 1px;
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+      background-color: $colorLow;
+      transition: background-color 0.15s ease;
+
+      .label {
+        @include font('body', normal, $colorHigh);
+      }
+    }
+
+    &.out .day-inner {
+      background-color: $colorWhite;
+    }
+
+    &.today .day-inner {
+      background-color: $colorWhite;
+      border: 1px solid $colorAccent;
+
+      .label {
+        font-weight: bold;
+      }
+    }
+
+    &.selected .day-inner {
+      background-color: $colorAccent;
+
+      .label {
+        font-weight: bold;
+      }
+    }
+
+    &.selected.start + .between:not(:nth-child(7n - 6)) .day-inner {
+      width: calc(100% + 2px);
+      margin-left: -1px;
+
+      .label { margin-left: 0;}
+    }
+
+    &.between {
+      .day-inner {
+        width: 100%;
+        background-color: rgba($colorAccent, 0.2);
+  
+        .label {
+          margin-left: -1px;
+          color: $colorHigh;
+        }
+      }
+
+      &:nth-child(7n) .day-inner {
+        width: calc(100% - 2px);
+      }
+    }
+  }
+
+  .months-selector {
+    grid-template-columns: repeat(auto-fill, minmax(calc(100% / 4), 1fr));
+
+    .month {
+      cursor: pointer;
+
+      .month-inner {
+        margin: 1px 0 0 1px;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        background-color: $colorLow;
+        transition: background-color 0.15s ease;
+
+        .label {
+          @include font('body', normal, $colorHigh);
+        }
+      }
+
+      &.current .month-inner {
+        background-color: $colorWhite;
+        border: 1px solid $colorAccent;
+      }
+
+      &.selected .month-inner {
+        background-color: $colorAccent;
+        border: 1px solid $colorAccent;
+
+        .label {
+          font-weight: bold;
+        }
+      }
+
+      &.selected.start + .between:not(:nth-child(4n - 3)) .month-inner {
+        width: calc(100% + 2px);
+        margin-left: -1px;
+  
+        .label { margin-left: 0;}
+      }
+
+      &.between {
+        .month-inner {
+          width: 100%;
+          background-color: rgba($colorAccent, 0.2);
+    
+          .label {
+            margin-left: -1px;
+            color: $colorHigh;
+          }
+        }
+  
+        &:nth-child(4n) .month-inner {
+          width: calc(100% - 2px);
+        }
+      }
+    }
+  }
+}

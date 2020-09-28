@@ -1,0 +1,35 @@
+
+$sizes: (0, 2, 4, 6, 8, 10, 12, 16, 20, 24, 32, 60);
+$types: ("padding", "top", "right", "bottom", "left", "horizontal", "vertical");
+
+@function get-name($type) {
+  @if ($type == "padding") {
+    @return padding;
+  } @else {
+    @return padding-#{$type};
+  }
+}
+
+@mixin padding {
+  @each $type in $types {
+    $name: get-name($type);
+
+    @each $size in $sizes {
+      .#{$name}-#{$size} {
+        @if ($type == "padding") {
+          padding: $size + px;
+        } @if ($type == "horizontal") {
+          padding-right: $size + px;
+          padding-left: $size + px;
+        } @else if ($type == "vertical") {
+          padding-top: $size + px;
+          padding-bottom: $size + px;
+        } @else {
+          #{$name}: $size + px;
+        }
+      }
+    }
+  }
+}
+
+@include padding();

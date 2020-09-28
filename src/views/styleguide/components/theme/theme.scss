@@ -1,0 +1,18 @@
+/**
+ *  Theme style file
+**/
+
+.color {
+    width: auto;
+    height: 160px;
+    border: solid 1px #979797;
+
+    .inner {
+      width: 100px;
+      height: 100px;
+    }
+
+    p {
+      @include font("body", normal, $colorTop);
+    }
+  }

@@ -1,0 +1,13 @@
+/**
+ *  Icon style file
+**/
+
+.icon-container {
+  display: inline-flex;
+  width: auto;
+  height: auto;
+
+  svg {
+    transition: all 0.25s ease;
+  }
+}

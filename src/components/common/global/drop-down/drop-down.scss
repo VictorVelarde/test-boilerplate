@@ -1,0 +1,22 @@
+/**
+ *  DropDown style file
+**/
+
+.drop-down-container {
+  position: relative;
+  
+  button {
+    cursor: pointer;
+  }
+
+  .trigger {
+    width: 100%;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 9;
+  }
+}

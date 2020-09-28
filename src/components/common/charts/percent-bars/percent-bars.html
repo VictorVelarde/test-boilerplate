@@ -1,0 +1,10 @@
+<!-- PercentBars template file -->
+<button class="percent-bars-container flex flex-column items-start margin-bottom-8" 
+  :class="{ filterable }" 
+  @click="emit">
+  <p class="title margin-bottom-4">{{ title }}</p>
+  
+  <div v-for="bar, i in bars" class="bar-wrapper" :class="{ unactive: filterable && !active }">
+    <span class="bar" :style="{ 'width': calculateWidth(bar.value), 'background-color': getColor(i) }"></span>
+  </div>
+</button>

@@ -1,0 +1,19 @@
+<!-- Checkbox template file -->
+<label class="checkbox-container flex flex-row items-center justify-start"
+  :class="{ 'checked': props.value, 'disabled': props.disabled }">
+  <span class="checkbox" :class="{ 'checked': props.value, 'disabled': props.disabled }">
+    <span class="inner">
+      <i class="checkmark"></i>
+    </span>
+    <input type="checkbox"
+      class="input"
+      :disabled="props.disabled"
+      :name="props.name"
+      :checked="props.value"
+      v-on="listeners"
+    >
+  </span>
+  <span class="label" v-if="props.label">
+    {{props.label}}
+  </span>
+</label>

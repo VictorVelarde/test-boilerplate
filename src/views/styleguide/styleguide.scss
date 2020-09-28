@@ -1,0 +1,134 @@
+/**
+ *  Styleguide style file
+**/
+
+$aside-width: 200px;
+$aside-top: 76px;
+
+.styleguide-container {
+  position: absolute;
+  top: $aside-top;
+  left: 0;
+  background-color: $colorWhite;
+
+  aside {
+    position: fixed;
+    top: $aside-top;
+    left: 0;
+    height: calc(100% - #{$aside-top});
+    width: $aside-width;
+    border-right: 1px solid $colorLow;
+
+    .scroll-content {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+    }
+
+    h1 {
+      @include font("paris", bold, $colorTop);
+    }
+
+    li {
+        width: 100%;
+        height: 100%;
+       
+        .btn {
+          width: 100%;
+          height: 100%;
+          text-transform: capitalize;
+          @include font("body-l", normal, $colorTop);
+          
+          &:hover {
+            background-color: $colorAccentHover;
+          }
+        }
+
+        &.subsection {
+          .btn {
+            @include font("body", normal, $colorMedium);
+          }
+        }
+    }
+  }
+
+  main {
+    margin-left: $aside-width;
+    .wrapper {
+      max-width: 100%;
+  
+      .section-title {
+        text-decoration: underline;
+      }
+    }
+  
+    h1, h2, h3, h4, h5, p {
+      max-width: 800px;
+    }
+  
+    // Typography
+    h1 {
+      @include font("paris", bold, $colorTop);
+    }
+  
+    h2 {
+      @include font("chicago", bold, $colorTop);
+    }
+  
+    h3 {
+      @include font("madrid", bold, $colorTop);
+    }
+  
+    h4 {
+      @include font("milan", normal, $colorTop);
+    }
+  
+    h5 {
+      @include font("berlin", normal, $colorTop);
+    }
+  
+    p {
+      @include font("body", normal, $colorTop);
+    }
+  
+    p.small {
+      @include font("body-s", normal, $colorTop);
+    }
+  
+    p.large {
+      @include font("body-l", normal, $colorTop);
+    }
+  
+    p.note {
+      @include font("note", normal, $colorTop);
+    }
+  
+    pre {
+      display: inline-flex;
+      border-radius: 3px;
+      border: 1px solid $colorLow;
+      background-color: $colorVeryLow;
+  
+      p {
+        @include font("note", normal, $colorMediumHigh);
+        font-family: monospace;
+      }
+    }
+  
+  
+    // Shadows
+    .shadow {
+      width: auto;
+      height: 160px;
+  
+      .inner {
+        width: 160px;
+        height: 160px;
+      }
+  
+      p {
+        @include font("body", normal, $colorTop);
+      }
+    }
+  }
+}

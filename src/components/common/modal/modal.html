@@ -1,0 +1,9 @@
+<!-- Modal template file -->
+<transition appear>
+  <div class="modal-container" v-portal="'#modal-portal'">
+    <div v-if="background" class="bg" @click="close"></div>
+    <div class="slot">
+      <slot></slot>
+    </div>
+  </div>
+</transition>

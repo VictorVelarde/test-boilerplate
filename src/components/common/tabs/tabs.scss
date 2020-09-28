@@ -1,0 +1,44 @@
+/**
+ *  Tabs style file
+**/
+
+.tabs-container {
+  position: relative;
+
+  ul.tabs {
+    border-bottom: 1px solid $colorLow;
+
+    li {
+      height: 100%;
+
+      a {
+        position: relative;
+        width: 100%;
+        border-bottom: 2px solid transparent;
+        @include font("body", normal, $colorModerate);
+        text-align: center;
+        cursor: pointer;
+        transition: color 0.25s ease, border 0.25s ease;
+
+        &:hover {
+          border-bottom: 2px solid $colorModerate;
+        }
+
+        &.active {
+          border-bottom: 2px solid $colorAccent;
+        }
+
+        &.disabled {
+          pointer-events: none;
+          user-select: none;
+        }
+      }
+    }
+  }
+
+  .tabs-details {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+}

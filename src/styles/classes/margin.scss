@@ -1,0 +1,36 @@
+
+$sizes: (0, 2, 4, 6, 8, 10, 12, 16, 20, 24, 32, 60);
+$types: ("margin", "top", "right", "bottom", "left", "horizontal", "vertical");
+
+@function get-name($type) {
+  @if ($type == "margin") {
+    @return margin;
+  } @else {
+    @return margin-#{$type};
+  }
+}
+
+
+@mixin margin {
+  @each $type in $types {
+    $name: get-name($type);
+
+    @each $size in $sizes {
+      .#{$name}-#{$size} {
+        @if ($type == "margin") {
+          margin: $size + px;
+        } @if ($type == "horizontal") {
+          margin-right: $size + px;
+          margin-left: $size + px;
+        } @else if ($type == "vertical") {
+          margin-top: $size + px;
+          margin-bottom: $size + px;
+        } @else {
+          #{$name}: $size + px;
+        }
+      }
+    }
+  }
+}
+
+@include margin();

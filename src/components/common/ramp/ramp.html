@@ -1,0 +1,14 @@
+<!-- Ramp template file -->
+<div class="ramp-container flex flex-column">
+  <div v-if="type === 'linear'" class="background margin-bottom-4" :style="{'background': 'linear-gradient(to right,' + colors + ')'}"></div>
+  <div v-if="type === 'segment'" class="background flex flex-row margin-bottom-4">
+    <div v-for="color in colors" :key="color" class="segment flex-auto" :style="{'background-color': color }"></div>
+  </div>
+  
+  <div class="labels flex flex-row items-center justify-between">
+    <p v-if="min != null && Number.isFinite(min)" class="min">{{ min }}</p>
+    <p v-else class="min">-</p>
+    <p v-if="max != null && Number.isFinite(max)" class="min">{{ max }}</p>
+    <p v-else class="max">-</p>
+  </div>
+</div>

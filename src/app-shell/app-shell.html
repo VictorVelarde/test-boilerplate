@@ -1,0 +1,26 @@
+<!-- AppShell template file -->
+<div class="app-shell">
+  <div id="nav">
+    <template v-for="(r, $index) in routes">
+      <router-link
+        :to="r.to"
+        v-slot="{ route, href, navigate }"
+      >
+        <a
+          :href="href"
+          @click="navigate"
+          :class="route.name === $route.name ? 'router-link-active' : ''"
+          :aria-current="route.path === $route.path && 'page'"
+        >
+          {{r.name}}
+        </a>
+      </router-link>
+      <template v-if="$index < routes.length - 1">|</template>
+    </template>
+  </div>
+  
+  <router-view></router-view>
+
+  <div id="modal-portal"></div>
+  <div id="tooltip-portal"></div>
+</div>

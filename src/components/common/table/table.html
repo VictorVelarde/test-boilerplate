@@ -1,0 +1,51 @@
+<div class="table-container">
+  <div v-if="filter" class="filter margin-bottom-24 padding-12">
+    <input type="text" name="filter" placeholder="Filter" @keydown.space.stop="filterTable" @keyup.prevent.stop="filterTable($event)">
+  </div>
+
+  <div class="table">
+    <div class="table-header">
+      <div v-for="(col, index) in columns"
+        :key="index"
+        class="table-cell flex items-center justify-center"
+        :class="[col, { 'clickable': sortColumns, 'selected-col': isColumnSelected(index) }]"
+        @click.prevent.stop="sortColumns && sortTable(col, $event)">
+        {{ columnNames ? columnNames[index] : col | normalizeHeaders }}
+        <Icon v-if="sortColumns" class="arrow" icon="icon-drop-down.svg" size="16px" :fill="style.colorHigh"></Icon>
+      </div>
+    </div>
+
+    <div class="table-body">
+      <Scrollbar ref="scrollbar">
+        <div class="scroller">
+          <div v-for="(item, idx) in page"
+            :key="item.id"
+            class="table-row"
+            :class="[getRowClass, { 'selected': item.selected === true, 'disabled': item.disabled }]"
+            @click="e => selectable && !item.disabled && tableRowClick(item)"
+            v-if="maxRows === undefined || idx < maxRows">
+            <div v-for="(col, index) in columns"
+              :key="index"
+              :style="{ 'z-index': page.length - idx }"
+              class="table-cell flex flex-row items-center justify-center"
+              :class="[col, { 'selected-col': isColumnSelected(index) }]">
+              <div v-if="!hasSlot(col)" class="item-wrapper">{{ format && format[col] ? format[col](item[col]) : item[col] }}</div>
+              <slot v-else :name="col" v-bind:data="item"></slot>
+            </div>
+          </div>
+        </div>
+      </Scrollbar>
+
+      <div class="nodata" v-if="nodata">{{ nodataMessage }}</div>
+    </div>
+  </div>
+
+  <Pagination v-if="pagination"
+    ref="paginationComponent"
+    :items="cached"
+    :items-per-page="itemsPerPage"
+    :placeholder="paginationPlaceholder"
+    :input-placeholder="paginationInputPlaceholder"
+    @change="onChangePage">
+  </Pagination>
+</div>

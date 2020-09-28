@@ -1,0 +1,36 @@
+/**
+ *  Modal style file
+**/
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99;
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(26, 30, 41, 0.8), $colorTop);
+    pointer-events: all;
+    z-index: 0;
+  }
+
+  .slot {
+    pointer-events: all;
+    z-index: 1;
+  }
+}
+
+.v-leave { opacity: 1; }
+.v-leave-active { transition: opacity 0.25s; }
+.v-leave-to { opacity: 0; }
+.v-enter { opacity: 0; }
+.v-enter-active  { transition: opacity 0.25s 0.2s; }
+.v-enter-to { opacity: 1; }

@@ -1,0 +1,16 @@
+<!-- Radio template file -->
+<label class="radio-container flex flex-row items-start justify-start" 
+  :class="{ disabled: props.disabled }">
+  <div class="radio margin-right-10" :class="{ disabled: props.disabled }">
+    <input type="radio"
+      class="input"
+      :value="props.rvalue"
+      :name="props.name"
+      :checked="props.value === props.rvalue"
+      :disabled="props.disabled"
+      v-on="listeners"
+    >
+    <span class="inner"></span>
+  </div>
+  <span class="label">{{ props.label }}</span>
+</label>

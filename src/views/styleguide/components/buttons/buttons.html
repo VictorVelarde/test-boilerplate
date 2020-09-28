@@ -1,0 +1,180 @@
+<!-- Buttons template file -->
+<section id="buttons" ref="buttons" class="wrapper padding-horizontal-32 padding-bottom-32 margin-bottom-60">
+  <h1 class="section-title margin-bottom-16">Buttons</h1>
+  <h2 id="buttons-sizes" ref="buttons-sizes" class="margin-bottom-32">Sizes</h2>
+  
+  <div class="flex flex-row items-start margin-bottom-20">
+    <button class="btn small primary text margin-right-12">
+      <span>small</span>
+    </button>
+
+    <button class="btn default primary text margin-right-12">
+      <span>default</span>
+    </button>
+
+    <button class="btn large primary text">
+      <span>large</span>
+    </button>
+  </div>
+
+  <h2 id="buttons-styles" ref="buttons-styles" class="margin-vertical-32">Styles</h2>
+  
+  <div class="flex flex-row items-center margin-bottom-20">
+    <p class="margin-right-12" :style="{ width: '200px' }">Primary</p>
+    <button class="btn default primary text margin-right-12">
+      <span>label</span>
+    </button>
+  
+    <button class="btn default primary text disabled">
+      <span>label</span>
+    </button>
+  </div>
+  
+  <div class="flex flex-row items-center margin-bottom-20">
+    <p class="margin-right-12" :style="{ width: '200px' }">Secondary</p>
+    <button class="btn default secondary text margin-right-12">
+      <span>label</span>
+    </button>
+  
+    <button class="btn default secondary text disabled">
+      <span>label</span>
+    </button>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-20">
+    <p class="margin-right-12" :style="{ width: '200px' }">Tertiary</p>
+    <button class="btn default tertiary text margin-right-12">
+      <span>label</span>
+    </button>
+  
+    <button class="btn default tertiary text disabled">
+      <span>label</span>
+    </button>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-20">
+    <p class="margin-right-12" :style="{ width: '200px' }">Base</p>
+    <button class="btn default no-bg text margin-right-12">
+      <span>label</span>
+    </button>
+  
+    <button class="btn default no-bg text disabled">
+      <span>label</span>
+    </button>
+  </div>
+
+  <div class="flex flex-row items-center">
+    <p class="margin-right-12" :style="{ width: '200px' }">Delete</p>
+    <button class="btn default delete text margin-right-12">
+      <span>label</span>
+    </button>
+  
+    <button class="btn default delete text disabled">
+      <span>label</span>
+    </button>
+  </div>
+
+  <h2 id="buttons-types" ref="buttons-types" class="margin-vertical-32">Types</h2>
+
+  <div class="flex flex-row items-center margin-bottom-20">
+    <p class="margin-right-12" :style="{ width: '200px' }">Icon</p>
+    <button class="btn default primary icon margin-right-12">
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+    </button>
+  
+    <button class="btn default secondary icon margin-right-12">
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+    </button>
+
+    <button class="btn default tertiary icon margin-right-12">
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+    </button>
+
+    <button class="btn default no-bg icon margin-right-12">
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+    </button>
+
+    <button class="btn default delete icon">
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+    </button>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-20">
+    <p class="margin-right-12" :style="{ width: '200px' }">Text</p>
+    <button class="btn default primary text margin-right-12">
+      <span>label</span>
+    </button>
+    
+    <button class="btn default secondary text margin-right-12">
+      <span>label</span>
+    </button>
+    
+    <button class="btn default tertiary text margin-right-12">
+      <span>label</span>
+    </button>
+    
+    <button class="btn default no-bg text margin-right-12">
+      <span>label</span>
+    </button>
+    
+    <button class="btn default delete text">
+      <span>label</span>
+    </button>
+  </div>
+  
+  <div class="flex flex-row items-center margin-bottom-20">
+    <p class="margin-right-12" :style="{ width: '200px' }">Icon + Text</p>
+    <button class="btn default primary icon-text margin-right-12">
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+      <span>label</span>
+    </button>
+    
+    <button class="btn default secondary icon-text margin-right-12">
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+      <span>label</span>
+    </button>
+    
+    <button class="btn default tertiary icon-text margin-right-12">
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+      <span>label</span>
+    </button>
+    
+    <button class="btn default no-bg icon-text margin-right-12">
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+      <span>label</span>
+    </button>
+    
+    <button class="btn default delete icon-text">
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+      <span>label</span>
+    </button>
+  </div>
+
+  <div class="flex flex-row items-center margin-bottom-20">
+    <p class="margin-right-12" :style="{ width: '200px' }">Text + Icon</p>
+    <button class="btn default primary text-icon margin-right-12">
+      <span>label</span>
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+    </button>
+  
+    <button class="btn default secondary text-icon margin-right-12">
+      <span>label</span>
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+    </button>
+  
+    <button class="btn default tertiary text-icon margin-right-12">
+      <span>label</span>
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+    </button>
+  
+    <button class="btn default no-bg text-icon margin-right-12">
+      <span>label</span>
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+    </button>
+  
+    <button class="btn default delete text-icon">
+      <span>label</span>
+      <Icon icon="icon-calendar.svg" size="20px"></Icon>
+    </button>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+/**
+ *  {{pascalCase name}}.vue
+**/
+/* template import */
+{{#unless functional}}
+<template src="./{{dashCase name}}.html"></template>
+{{else}}
+<template functional src="./{{dashCase name}}.html"></template>
+{{/unless}}
+/* style import */
+<style scoped lang="scss" src="./{{dashCase name}}.scss"></style>
+<script>
+{{#unless functional}}
+{{#if storeConnection}}
+import { mapState, mapActions, mapGetters } from 'vuex'
+{{#if storeModule}}
+import { MODULE_NAME_{{constantCase name}}, ACTIONS_{{constantCase name}}, GETTERS_{{constantCase name}} } from '@/store/{{dashCase name}}'
+{{else}}
+import { MODULE_NAME, ACTIONS, GETTERS } from '@/store'
+{{/if}}
+{{/if}}
+{{/unless}}
+{{#if styleMixin}}
+import style from '@/mixins/style'
+{{/if}}
+export default {
+  name: '{{pascalCase name}}',
+  {{#if functional}}
+  funcional: true,
+  {{/if}}
+  {{#unless functional}}
+  {{#if styleMixin}}
+  mixins: [
+    style
+  ],
+  {{/if}}
+  props: {},
+  {{/unless}}
+  {{#unless functional}}
+  data () {
+    return {}
+  },
+  {{/unless}}
+  computed: {
+    {{#unless functional}}
+    {{#if storeConnection}}
+    ...mapState(MODULE_NAME_{{constantCase name}}, {
+      stateDefault: state => state
+    }),
+    ...mapGetters(MODULE_NAME_{{constantCase name}}, {
+      gettersDefault: GETTERS.gettersDefault
+    })
+    {{/if}}
+    {{/unless}}
+  },
+  methods: {
+    {{#unless functional}}
+    {{#if storeConnection}}
+    ...mapActions(MODULE_NAME_{{constantCase name}}, [
+      ACTIONS.actionsDefault
+    ])
+    {{/if}}
+    {{/unless}}
+  }
+}
+</script>

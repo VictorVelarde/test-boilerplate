@@ -1,0 +1,37 @@
+/**
+ *  TreeItem style file
+**/
+
+.tree-item-container {
+  width: 100%;
+    
+  button {
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+
+    &:hover,
+    &.selected {
+      background-color: $colorVeryLow;
+    }
+
+    .label {
+      max-width: calc(100% - 20px);
+      overflow: hidden;
+      
+      .bullet {
+        width: 2px;
+        height: 2px;
+        background-color: $colorHigh;
+      }
+  
+      span {
+        width: 100%;
+        @include font("body", 500, $colorHigh);
+        @include ellipsis();
+      }
+    }
+  }
+}

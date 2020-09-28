@@ -1,0 +1,27 @@
+// Small device
+@mixin bp-sm {
+  @media (min-width: 1px) and (max-width: #{$screen-md - 1px}) {
+    @content;
+  }
+}
+
+// Medium device
+@mixin bp-md {
+  @media (min-width: #{$screen-md}) and (max-width: #{$screen-lg - 1px}) {
+    @content;
+  }
+}
+
+// Large device
+@mixin bp-lg {
+  @media (min-width: #{$screen-lg}) and (max-width: #{$screen-hd - 1px}) {
+    @content;
+  }
+}
+
+// High definition
+@mixin bp-hd {
+  @media (min-width: #{$screen-hd}) {
+    @content;
+  }
+}

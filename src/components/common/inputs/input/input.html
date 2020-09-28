@@ -1,0 +1,24 @@
+<!-- Input template file -->
+<div class="input-container padding-right-32 padding-left-16"
+  :class="{ large, 'active': active, 'focus': focus, 'disabled': disabled, 'error': fieldError }" 
+  @click="onFocus" 
+  v-click-outside="onBlur">
+  <label v-if="large" class="placeholder">{{ label }}</label>
+  <input :type="type" 
+    :name="name" 
+    ref="input"
+    :placeholder="!large && label"
+    :required="required" 
+    :pattern="pattern"
+    :maxlength="maxLength"
+    :minlength="minLength"
+    :value="value"
+    @input="onInput">
+  <div class="icon-wrapper flex items-center justify-center">
+    <!-- TODO: tooltip or label -->
+    <Icon v-if="fieldError" :title="fieldError" icon="icon-alert.svg" size="20px" :fill="style.colorFeedError"></Icon>
+    <button v-else="!fieldError && value" type="button" class="flex items-center justify-center" tabindex="-1" @click="clear">
+      <Icon icon="icon-delete-line.svg" size="20px" :fill="style.colorMedium"></Icon>
+    </button>
+  </div>
+</div>

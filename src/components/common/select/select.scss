@@ -1,0 +1,141 @@
+/**
+ *  Select style file
+**/
+
+.select-container {
+  position: relative;
+  width: 100%;
+
+  &.visible {
+    .icon-container ::v-deep svg {
+      fill: $colorAccentHover;
+    }
+
+    div + .icon-container {
+      transform: rotate(-90deg);
+    }
+  }
+
+  .trigger {
+    width: 100%;
+    min-width: 100%;
+    height: 40px;
+    border: 1px solid $colorLow;
+    cursor: pointer;
+
+    > div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      padding: 0 10px;
+
+      .icon-container {
+        transition: fill 0.25s ease, transform 0.25s ease,;
+      }
+    }
+
+    input {
+      border: none;
+      outline: none;
+      position: absolute;
+      top: 3px;
+      left: 0;
+      width: calc(100% - 70px);
+      height: calc(100% - 5px);
+      background-color: $colorWhite;
+      @include font("body-l", normal, $colorHigh);
+  
+      &::-webkit-input-placeholder {
+        @include font("body-l", normal, $colorMedium);
+        font-style: italic;
+      }
+      
+      &:-ms-input-placeholder {
+        @include font("body-l", normal, $colorMedium);
+        font-style: italic;
+      }
+      
+      &::placeholder {
+        @include font("body-l", normal, $colorMedium);
+        font-style: italic;
+      }
+    }
+  }
+
+  .content {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background-color: $colorWhite;
+    transition: opacity 0.25s ease;
+    z-index: 9;
+    overflow: hidden;
+
+    .clear-wrapper {
+      width: 100%;
+      height: 36px;
+      background-color: $colorLow;
+
+      p {
+        @include font("body-s", normal, $colorHigh);
+      }
+
+      .clear {
+        margin-left: 6px;
+        cursor: pointer;
+
+        p {
+          @include font("body-s", normal, $colorAccent);
+        }
+      }
+    }
+
+    .scroll-content {
+      overflow: auto;
+    }
+
+    .select-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      height: 40px;
+      border-bottom: 1px solid $colorLow;
+      transition: background-color 0.25s ease;
+
+      .icon-container {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+      }
+
+      p {
+        @include font("body", normal, $colorTop);
+      }
+
+      &:hover,
+      &.selected {
+        background-color: $colorVeryLow;
+      }
+
+      &:last-child {
+        border: none;
+      }
+
+      &:not(.selected) {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .no-results {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    @include font("body", 500, $colorHigh);
+  }
+}

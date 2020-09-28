@@ -1,0 +1,20 @@
+<!-- DatePicker template file -->
+<div class="date-picker-container" v-click-outside="close">
+  <div class="trigger" :class="{ expanded: expanded }" @click="expanded = !expanded">
+    <div class="date">
+      <div class="icon-wrapper">
+        <Icon icon="icon-calendar.svg" size="20px" fill="#9397A2"></Icon>
+      </div>
+      <p>{{ selected }}</p>
+    </div>
+  </div>
+  
+  <transition name="expand" @enter="enter" @after-enter="afterEnter" @leave="leave">
+    <div class="calendar-wrapper" v-show="expanded">
+      <Calendar ref="calendar" :arrow-icon-source="arrowIconSource" :arrow-icon-size="arrowIconSize"
+        :month-format="monthFormat" :day-format="dayFormat" :locale="locale" :range="range"
+        :future-selection="futureSelection" :selected-date="selectedDate" :start-date="startDate" :end-date="endDate">
+      </Calendar>
+    </div>
+  </transition>
+</div>

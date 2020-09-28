@@ -1,0 +1,14 @@
+/**
+ *  Calendar style file
+**/
+
+.calendar-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: $colorWhite;
+  box-shadow: 0 4px 12px 0 rgba($colorPrimary, 0.4);
+  user-select: none;
+}

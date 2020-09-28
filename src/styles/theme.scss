@@ -1,0 +1,44 @@
+// Colors
+$colorPrimary: #ffcc33;
+$colorAccent: #ffcc33;
+$colorAccentHover: #ffde00;
+$colorSecondary: #007396;
+$colorTertiary: #00546e;
+$colorWhite: #ffffff;
+
+$colorFeedOk: #76cc85;
+$colorFeedError: #f86b5f;
+$colorFeedWarning: #fbcf7d;
+
+$colorTop: #222222;
+$colorHigh: #333333;
+$colorMediumHigh: #53565a;
+$colorMedium: #888b8d;
+$colorModerate: #bbbcbc;
+$colorLow: #eeeeee;
+$colorVeryLow: #faf9f8;
+$colorNegative: #ffffff;
+
+:export {
+  colorPrimary: $colorPrimary;
+  colorAccent: $colorAccent;
+  colorAccentHover: $colorAccentHover;
+  colorSecondary: $colorSecondary;
+  colorTertiary: $colorTertiary;
+  colorWhite: $colorWhite;
+
+  colorFeedOk: $colorFeedOk;
+  colorFeedError: $colorFeedError;
+  colorFeedWarning: $colorFeedWarning;
+
+  colorTop: $colorTop;
+  colorHigh: $colorHigh;
+  colorMediumHigh: $colorMediumHigh;
+  colorMedium: $colorMedium;
+  colorModerate: $colorModerate;
+  colorLow: $colorLow;
+  colorVeryLow: $colorVeryLow;
+  colorNegative: $colorNegative;
+}
+
+@import "./mixins/mixins.scss";

@@ -1,0 +1,12 @@
+<!-- TextArea template file -->
+<textarea class="text-area-container padding-vertical-10 padding-horizontal-16"
+  :class="{ 'disabled': disabled, 'error': fieldError }"
+  ref="textarea"
+  :name="name"
+  :placeholder="label"
+  :maxlength="maxLength" 
+  :minlength="minLength" 
+  :required="required" 
+  :value="value" 
+  @input="onInput">
+</textarea>

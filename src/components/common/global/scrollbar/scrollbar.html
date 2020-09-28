@@ -1,0 +1,13 @@
+<!-- Scrollbar template file -->
+<div class="scrollbar-container" :class="{ 'horizontal': horizontal, 'mobile': isMobile }" ref="container">
+  <div class="scroller-wrapper">
+    <slot></slot>
+  </div>
+
+  <div class="scrollbar-x" ref="scrollbarX" key="scrollbarX" v-if="horizontal">
+    <div class="thumb-x" ref="thumbX"></div>
+  </div>
+  <div class="scrollbar-y" ref="scrollbarY" key="scrollbarY" v-if="vertical">
+    <div class="thumb-y" ref="thumbY"></div>
+  </div>
+</div>

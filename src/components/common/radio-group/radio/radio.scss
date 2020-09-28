@@ -1,0 +1,97 @@
+/**
+ *  Radio style file
+**/
+
+.radio-container {
+  white-space: nowrap;
+  max-width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    .radio .inner {
+      background-color: $colorVeryLow
+    }
+
+    .label {
+      color: $colorAccentHover;
+    }
+  }
+
+  &.disabled .radio .inner {
+    border-color: $colorLow;
+    background-color: $colorLow;
+  }
+
+  .radio {
+    outline: none;
+    display: inline-flex;
+    position: relative;
+    vertical-align: middle;
+    white-space: nowrap;
+    line-height: 1;
+
+    .inner {
+      display: inline-flex;
+      position: relative;
+      width: 24px;
+      height: 24px;
+      top: 0;
+      left: 0;
+      border: 1px solid $colorModerate;
+      border-radius: 50%;
+      background-color: $colorWhite;
+      transition: border-color 0.2s ease-in-out, 
+                  background-color 0.2s ease-in-out,
+                  box-shadow 0.2s ease-in-out;
+
+      &:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 8px;
+        height: 8px;
+        transform: translate3d(-50%, -50%, 0) scale(0);
+        border-radius: 50%;
+        background-color: $colorTop;
+        transition: transform 0.2s ease-in-out;
+      }
+    }
+
+    .input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    // Checked
+    input[type="radio"]:checked {
+      &:hover + .inner {
+        background-color: $colorAccentHover;
+        border-color: $colorAccentHover;
+      }
+
+      & + .inner {
+        border-color: $colorAccent;
+        background-color: $colorAccent;
+
+        &:after {
+          transform: translate3d(-50%, -50%, 0) scale(1);
+        }
+      }
+    }
+  }
+
+  .label {
+    display: inline-flex;
+    @include font("body", null, $colorTop);
+    transition: color 0.25s ease;
+    white-space: normal;
+  }
+}

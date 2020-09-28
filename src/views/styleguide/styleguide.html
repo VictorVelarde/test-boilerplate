@@ -1,0 +1,63 @@
+<!-- Styleguide template file -->
+<div class="flex padding-vertical-24 padding-right-24 styleguide-container padding-bottom-60">
+  <aside class="padding-vertical-24">
+    <Scrollbar>
+      <div class="scroll-content">
+  
+        <h1 class="padding-left-24 title">
+          Sections
+        </h1>
+
+        <ul class="margin-top-32">
+          <li v-for="section in sections" class="padding-vertical-8 padding-horizontal-24">
+            <button class="btn small no-bg text" @click="scrollTo(section.href)">{{section.name}}</button>
+
+            <ul>
+              <li v-for="subsection in section.subsections" class="padding-vertical-8 subsection">
+                <button class="btn small no-bg text" @click="scrollTo(subsection.href)">{{subsection.name}}</button>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </Scrollbar>
+  </aside>
+  <main class="flex-auto">
+    <!-- Typography -->
+    <Typography @loaded="loadSidebar"></Typography>
+    
+    <!-- Theme -->
+    <Theme @loaded="loadSidebar"></Theme>
+
+    <!-- Buttons -->
+    <Buttons @loaded="loadSidebar"></Buttons>
+
+    <!-- Shadows -->
+    <section id="shadows" ref="shadows" class="wrapper padding-horizontal-32 padding-bottom-32 margin-bottom-60">
+      <h1 class="section-title margin-bottom-32">Shadows</h1>
+
+      <div class="flex flex-row items-start">
+        <div class="shadow padding-vertical-10 padding-horizontal-10 margin-right-12">
+          <div class="inner shadow-low margin-bottom-8"></div>
+          <p>Shadow low</p>
+        </div>
+
+        <div class="shadow padding-vertical-10 padding-horizontal-10 margin-right-12">
+          <div class="inner shadow-medium margin-bottom-8"></div>
+          <p>Shadow medium</p>
+        </div>
+
+        <div class="shadow padding-vertical-10 padding-horizontal-10">
+          <div class="inner shadow-high margin-bottom-8"></div>
+          <p>Shadow high</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Components -->
+    <Components @loaded="loadSidebar"></Components>
+
+    <!-- Charts -->
+    <Charts @loaded="loadSidebar"></Charts>
+  </main>
+</div>

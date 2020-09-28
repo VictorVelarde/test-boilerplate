@@ -1,0 +1,17 @@
+<!-- RangeSlider template file -->
+<div class="range-slider-container flex-auto" :class="{ disabled }">
+  <div v-if="double" ref="thumbMin" class="thumb" :class="{ 'dragging': active }" :style="transformMin">
+    <span v-if="tooltip" class="tooltip">
+      <p>{{ currentValueMin }}</p>
+    </span>
+  </div>
+  
+  <div ref="thumbMax" class="thumb" :class="{ 'dragging': active }" :style="transformMax">
+    <span v-if="tooltip" class="tooltip">
+      <p>{{ currentValueMax }}</p>
+    </span>
+  </div>
+  <div ref="bar" class="bar" @click="onBarClick">
+    <span class="inner" :class="{ 'dragging': active }" :style="style"></span>
+  </div>
+</div>

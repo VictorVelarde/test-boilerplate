@@ -1,0 +1,135 @@
+// Maximum number of columns in the grid
+$grid-columns: 12 !default;
+
+
+// Padding between columns
+$grid-gutter: 20 !default;
+
+
+// Screen sizes
+// Defines breakpoint measurements
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 1120px;
+$screen-hd: 1200px;
+
+
+// Breakpoints
+// Defines suffixes for breakpoints
+$breakpoints: (
+  'sm': 'base',
+  'md': '(min-width: #{$screen-md})',
+  'lg': '(min-width: #{$screen-lg})',
+  'hd': '(min-width: #{$screen-hd})'
+);
+
+
+// Content Sizes
+// Defines the maximum width of the element to which the media query is applied.
+$content-sm: 100%;
+$content-md: 980px;
+$content-lg: 1140px;
+$content-hd: 1240px;
+
+// Prefix
+$prefix: "" !default;
+
+
+// Container
+.container,
+[#{$prefix}container] {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: $grid-gutter + px;
+  padding-right: $grid-gutter + px;
+
+  @include bp-sm { max-width: $content-sm; }
+  @include bp-md { max-width: $content-md; }
+  @include bp-lg { max-width: $content-lg; }
+  @include bp-hd { max-width: $content-hd; }
+}
+
+
+// Container full
+.container-full,
+[#{$prefix}container-full] {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100vw;
+  margin: 0 auto;
+}
+
+
+
+
+// Box
+[class*="box-"],
+[#{$prefix}box] {
+  padding-left: $grid-gutter + px;
+  padding-right: $grid-gutter + px;
+
+  @include bp-sm {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+
+// Grid
+@mixin grid($acronym) {
+  @for $i from 1 through $grid-columns {
+    $size: 100% / $grid-columns * $i;
+
+    .box-#{$acronym}-#{$i},
+    [#{$prefix}box~="#{$acronym}-#{$i}"] {
+      position: relative;
+      width: $size;
+      min-height: 1px;
+      flex-basis: auto;
+      width: $size;
+    }
+    
+    .box-offset-#{$acronym}-#{$i},
+    [#{$prefix}box~=#{"offset-" + $acronym}-#{$i}] {
+      margin-left: $size;
+    }
+  }
+}
+
+// .container-full:after,
+// [#{$prefix}container-full]:after,
+// .container:after,
+// [#{$prefix}container]:after,
+// [class*="box-"]:after,
+// [#{$prefix}box]:after {
+//   content: "";
+//   display: table;
+//   clear: both;
+// }
+
+.container-centered {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+
+// Mediaqueries
+@each $acronym, $breakpoint in $breakpoints {
+  @if $breakpoint == 'base' {
+    @include grid($acronym);
+  } @else {
+    @media #{$breakpoint} {
+      @include grid($acronym);
+    }
+  }
+}

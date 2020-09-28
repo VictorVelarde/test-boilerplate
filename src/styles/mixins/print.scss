@@ -1,0 +1,6 @@
+// Print
+@mixin print {
+  @media print {
+    @content;
+  }
+}
